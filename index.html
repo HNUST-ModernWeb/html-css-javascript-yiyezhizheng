@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人五维看板</title>
+    <link rel="stylesheet" href="style.css?v=20260330-lite">
+</head>
+<body>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <main class="page">
+        <div class="dashboard card">
+            <section class="left">
+                <div class="avatar-wrap">
+                    <img id="avatar" alt="头像" src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='40' fill='%23232836'/%3E%3Ccircle cx='40' cy='30' r='14' fill='%237f8ea3'/%3E%3Crect x='20' y='50' width='40' height='18' rx='9' fill='%237f8ea3'/%3E%3C/svg%3E">
+                    <input id="avatar-input" type="file" accept="image/*" hidden>
+                    <button id="btn-avatar" class="btn small">更换头像</button>
+                </div>
+
+                <h1 id="name">Neo Coder</h1>
+                <p id="bio">永不止步的开发者，正在把创意变成现实。</p>
+                <button id="btn-profile" class="btn">编辑个人签名</button>
+            </section>
+
+            <section class="right">
+                <div class="right-head">
+                    <h2>个人五维度展示</h2>
+                    <button id="btn-board" class="btn small">编辑看板</button>
+                </div>
+
+                <div class="radar-box">
+                    <canvas id="radar" width="460" height="280"></canvas>
+                    <div id="radar-tip" class="radar-tip hide"></div>
+                </div>
+
+                <div class="grid">
+                    <div class="panel">
+                        <h3>近期目标</h3>
+                        <ul id="goals"></ul>
+                    </div>
+                    <div class="panel">
+                        <h3>工作偏好</h3>
+                        <p><span>专注时段：</span><strong id="focus"></strong></p>
+                        <p><span>协作风格：</span><strong id="style"></strong></p>
+                        <div id="tags" class="tags"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="editor" class="modal hide">
+        <div class="modal-card">
+            <h3>编辑右侧看板</h3>
+            <div class="form five">
+                <label>学习力<input id="d1" type="number" min="0" max="100"></label>
+                <label>执行力<input id="d2" type="number" min="0" max="100"></label>
+                <label>创造力<input id="d3" type="number" min="0" max="100"></label>
+                <label>协作力<input id="d4" type="number" min="0" max="100"></label>
+                <label>韧性值<input id="d5" type="number" min="0" max="100"></label>
+            </div>
+            <label>近期目标（每行一条）<textarea id="goals-input" rows="4"></textarea></label>
+            <label>兴趣标签（逗号分隔）<input id="tags-input" type="text"></label>
+            <div class="form two">
+                <label>专注时段<input id="focus-input" type="text"></label>
+                <label>协作风格<input id="style-input" type="text"></label>
+            </div>
+            <div class="actions">
+                <button id="btn-cancel" class="btn small">取消</button>
+                <button id="btn-save" class="btn">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=20260330-lite"></script>
+</body>
+</html>
